@@ -17,9 +17,9 @@ Route::get('dashboard', function () {
             'Content-Type' => 'application/json',
     ])->get(auth()->user()->api_token->api_domain . '/crm/v5/settings/fields?module=Deals&include=allowed_permissions_to_update');
 
-    $dealStages = collect($response->json()['fields'])->filter(function($field) {
+    $dealStages = array_key_exists('fields', $response->json()) ? collect($response->json()['fields'])->filter(function($field) {
         return $field['field_label'] == 'Stage';
-    })->first()['pick_list_values'];
+    })->first()['pick_list_values'] : [];
     
     return Inertia::render('Dashboard', [
         'user' => auth()->user(),
