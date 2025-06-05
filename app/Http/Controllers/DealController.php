@@ -46,8 +46,6 @@ class DealController extends Controller
             throw new \Exception($response->json()['data'][0]['message']);
         } 
 
-        return back()->withInput([
-            'status' => 'Deal added successfully'
-        ]);
+        return back(201);
     }
 }

@@ -23,6 +23,8 @@
         phone: ''
     });
 
+    const status = ref('');
+
     const errors = ref([]);
 
     function submitForm() {
@@ -33,7 +35,14 @@
 
         axios.post('/deal', payload)
             .then((response) => {
-                console.log(response);
+                if(response.status === 201) {
+                    status.value = 'Deal and Account created successfully';
+
+                    setTimeout(() => {
+                        status.value = '';
+                    }, 2000)
+                }
+
                 deal.value = { name: '', stage: '' };
                 account.value = { name: '', website: '', phone: '' };
             }).catch((err) => errors.value = err.response.data.errors ?? err.response.data );
@@ -108,6 +117,10 @@
 
             <div class="bg-red-200">
                 {{ errors.message && errors.message }}
+            </div>
+
+            <div class="bg-green-200">
+               {{ status }}
             </div>
         </form>
     </div>
