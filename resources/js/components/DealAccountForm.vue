@@ -38,9 +38,11 @@
                 if(response.status === 201) {
                     status.value = 'Deal and Account created successfully';
 
+                    errors.value = [];
+
                     setTimeout(() => {
                         status.value = '';
-                    }, 2000)
+                    }, 2000);
                 }
 
                 deal.value = { name: '', stage: '' };
