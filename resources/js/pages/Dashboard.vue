@@ -13,7 +13,8 @@ const breadcrumbs: BreadcrumbItem[] = [
 ];
 
 interface Props {
-    user: object;
+    user: object,
+    deal_stages: object
 }
 
 const props = withDefaults(defineProps<Props>(), {
@@ -30,7 +31,7 @@ const props = withDefaults(defineProps<Props>(), {
             <GetToken :user={user} />
         </div>
         <div class="flex h-full flex-1 flex-col gap-4 rounded-xl p-4">
-            <DealAccountForm :user={user} />
+            <DealAccountForm :user={user} :deal_stages={deal_stages} />
         </div>
     </AppLayout>
 </template>

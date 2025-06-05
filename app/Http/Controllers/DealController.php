@@ -32,7 +32,8 @@ class DealController extends Controller
             'data' => [
                 [
                     'Deal_Name' => $deal['name'],
-                    'Stage' => $deal['stage'] //Actual stage name like "Qualification"
+                    'Stage' => $deal['stage'], //Actual stage name like "Qualification"
+                    'Account_Name' => $account['name'],
                 ]
             ]
         ]);

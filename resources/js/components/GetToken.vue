@@ -16,7 +16,7 @@
             response_type: 'code',
             client_id: '1000.7DBABT5NN8EJYMLJABQVIMHIUGHIGT',
             redirect_uri: 'http://127.0.0.1:8000/oauthredirect',
-            scope: 'ZohoCRM.modules.ALL'
+            scope: 'ZohoCRM.modules.ALL,ZohoCRM.settings.ALL'
     });
 
     const authUrl = `https://accounts.zoho.com/oauth/v2/auth?${params.toString()}`;

@@ -3,7 +3,8 @@
     import { ref } from 'vue';
 
     interface Props {
-        user: object;
+        user: object,
+        deal_stages: object
     }
 
     const props = withDefaults(defineProps<Props>(), {
@@ -53,7 +54,9 @@
 
                         <div>
                             <label for="dealStage" class="block text-sm font-medium text-gray-700">Deal Stage</label>
-                            <input v-model="deal.stage" id="dealStage" type="text" class="p-2 mt-1 block w-full rounded-md border-gray-300 shadow-sm" required />
+                            <select v-model="deal.stage" id="dealStage" type="text" class="p-2 mt-1 block w-full rounded-md border-gray-300 shadow-sm" required>
+                                <option v-for="stage in props.deal_stages.deal_stages" :value="stage.id">{{ stage.display_value }}</option>
+                            </select>
                         </div>
                     </div>
                 </div>
