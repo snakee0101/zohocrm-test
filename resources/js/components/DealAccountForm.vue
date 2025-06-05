@@ -29,11 +29,9 @@
 
         axios.post('/deal', payload)
             .then((response) => {
-                console.log(response.data);
+                deal.value = { name: '', stage: '' };
+                account.value = { name: '', website: '', phone: '' };
             });
-
-        deal.value = { name: '', stage: '' };
-        account.value = { name: '', website: '', phone: '' };
     }
 
 </script>

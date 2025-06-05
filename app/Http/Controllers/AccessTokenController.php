@@ -15,7 +15,7 @@ class AccessTokenController extends Controller
             'user_id' => $request->user()->id
         ])->update([
               "access_token" => $apiResponse->access_token,
-              "refresh_token" => $apiResponse->refresh_token,
+              "refresh_token" => $apiResponse->refresh_token ?? null,
               "api_domain" => $apiResponse->api_domain,
               "expires_in" => $apiResponse->expires_in
         ]);
