@@ -38,11 +38,6 @@
             apiResponse.value = '';
         });
     }
-
-    /*
-    
-    */
-
 </script>
 
 <template>

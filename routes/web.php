@@ -3,6 +3,7 @@
 use Inertia\Inertia;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AccessTokenController;
+use App\Http\Controllers\DealController;
 use App\Http\Controllers\OAuthRedirectController;
 
 Route::get('/', function () {
@@ -17,6 +18,9 @@ Route::get('dashboard', function () {
 
 Route::get('/oauthredirect', OAuthRedirectController::class);
 Route::post('/access_token', [AccessTokenController::class, 'store']);
+
+Route::post('/deal', [DealController::class, 'store'])->middleware('auth');
+
 
 require __DIR__.'/settings.php';
 require __DIR__.'/auth.php';
