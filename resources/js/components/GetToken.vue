@@ -17,7 +17,7 @@
         'client_id': '1000.7DBABT5NN8EJYMLJABQVIMHIUGHIGT',
         'client_secret': 'b04db67f267530f878abf27024659d73f5911422e7',
         'redirect_uri': 'http://127.0.0.1:8000/oauthredirect',
-        'code': props.user.user.api_token.authorization_code
+        'code': props.user.user.api_token ? props.user.user.api_token.authorization_code : null
     });
 
     function saveToken() {
