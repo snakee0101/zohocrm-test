@@ -47,7 +47,9 @@
 
                 deal.value = { name: '', stage: '' };
                 account.value = { name: '', website: '', phone: '' };
-            }).catch((err) => errors.value = err.response.data.errors ?? err.response.data );
+            }).catch((err) => {
+                errors.value = err.response.data.errors ?? err.response.data;
+            } );
     }
 
 </script>
