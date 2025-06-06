@@ -13,6 +13,7 @@ class OAuthRedirectController extends Controller
             'user_id' => $request->user()->id
         ], [
             'authorization_code' => $request->code,
+            'api_domain' => $request['accounts-server']
         ]);
 
         return redirect()->route('dashboard');

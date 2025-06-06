@@ -11,6 +11,20 @@ class DashboardController extends Controller
 {
     public function index(Request $request)
     {
+        if(! auth()->user()->api_token) {
+            $queryParams = http_build_query([
+                'response_type' => 'code',
+                'client_id' => '1000.7DBABT5NN8EJYMLJABQVIMHIUGHIGT',
+                'redirect_uri' => 'http://127.0.0.1:8000/oauthredirect',
+                'scope' => 'ZohoCRM.modules.ALL,ZohoCRM.settings.ALL',
+                'access_type' => 'offline',
+            ]);
+
+            $authUrl = "https://accounts.zoho.com/oauth/v2/auth?$queryParams";
+            
+            return redirect($authUrl);
+        }
+
         $dealStages = Cache::rememberForever('dealStages', function () {
             $response = Http::withHeaders([
                 'Authorization' => 'Zoho-oauthtoken ' . auth()->user()->api_token->access_token,
