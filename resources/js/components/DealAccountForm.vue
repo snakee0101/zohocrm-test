@@ -98,13 +98,13 @@
 
                         <div>
                             <label for="accountWebsite" class="block text-sm font-medium text-gray-700">Website</label>
-                            <input v-model="account.website" id="accountWebsite" type="url" class="p-2 mt-1 block w-full rounded-md border-gray-300 shadow-sm" />
+                            <input v-model="account.website" id="accountWebsite" type="text" class="p-2 mt-1 block w-full rounded-md border-gray-300 shadow-sm" />
                             <p class="mt-1 text-red-500">{{ errors['account.website'] && errors['account.website'][0] }}</p>
                         </div>
 
                         <div>
                             <label for="accountPhone" class="block text-sm font-medium text-gray-700">Phone</label>
-                            <input v-model="account.phone" id="accountPhone" type="tel" class="p-2 mt-1 block w-full rounded-md border-gray-300 shadow-sm" />
+                            <input v-model="account.phone" id="accountPhone" type="text" class="p-2 mt-1 block w-full rounded-md border-gray-300 shadow-sm" />
                             <p class="mt-1 text-red-500">{{ errors['account.phone'] && errors['account.phone'][0] }}</p>
                         </div>
                     </div>
